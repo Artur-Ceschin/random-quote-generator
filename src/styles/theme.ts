@@ -13,4 +13,7 @@ export const theme = extendTheme({
       },
     },
   },
+  shadows: {
+    outline: '0',
+  },
 });
