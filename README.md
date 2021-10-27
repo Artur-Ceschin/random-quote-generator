@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://random-quote-generator-xi.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="">
+    <a href="https://github.com/Artur-Ceschin/random-quote-generator">
       Solution
     </a>
     <span> | </span>
@@ -26,7 +26,7 @@
 
 ## Overview
 
-![gif project](./public/random-quote-gif.gif)
+![gif project](./public/random-quote1.gif)
 
 ### Built with 💻
 
@@ -58,10 +58,6 @@ $ npm install or yarn
 # Run the app
 $ npm dev or yarn dev
 ```
-
-### 🔗 Link for the online project
-
-[WorldTrip](https://random-quote-generator-xi.vercel.app/)
 
 ### Author
 
