@@ -11,12 +11,15 @@ interface DataProps {
   quoteAuthor: string;
   quoteGenre: string;
 }
-interface HomeProps {
+
+interface Data {
   data: DataProps[];
 }
 
-export default function Author(props: HomeProps) {
+export default function Author(props: Data) {
   const router = useRouter();
+
+  console.log(props.data);
 
   return (
     <>
@@ -52,11 +55,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
-  const response = await api.get(`?author=${slug}`);
-  const data = response.data.data;
-
+  const { data } = await api.get(`?author=${slug}`);
+  console.log(data);
   return {
-    props: { data },
+    props: data,
     revalidate: 60 * 60 * 24, //24 hours
   };
 };
