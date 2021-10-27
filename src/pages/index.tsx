@@ -22,7 +22,7 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <Flex direction="column">
+    <Flex direction="column" height="100vh">
       <Random />
       <Flex
         mx="auto"
@@ -30,7 +30,7 @@ export default function Home(props: HomeProps) {
         justify="center"
         w="100%"
         maxWidth="1024px"
-        h="80vh"
+        h="100%"
       >
         {props.quotes.data.map((data) => (
           <Quote

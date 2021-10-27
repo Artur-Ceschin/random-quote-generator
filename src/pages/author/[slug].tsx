@@ -2,6 +2,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { Footer } from '../../components/Footer';
+import { Loading } from '../../components/Loading';
 import { Quote } from '../../components/Quote';
 import { Random } from '../../components/Random';
 import { api } from '../../services/api';
@@ -19,11 +20,12 @@ interface Data {
 export default function Author(props: Data) {
   const router = useRouter();
 
-  console.log(props.data);
-
+  if (router.isFallback) {
+    return <Loading />;
+  }
   return (
     <>
-      <Flex direction="column" h="100%">
+      <Flex direction="column" height="100vh">
         <Random />
         <Flex direction="column" maxWidth="1024px" mx="auto">
           <Text fontSize="36px" fontWeight="700" my="50" ml="100px">
@@ -40,8 +42,8 @@ export default function Author(props: Data) {
             ))}
           </Flex>
         </Flex>
+        <Footer />
       </Flex>
-      <Footer />
     </>
   );
 }
@@ -49,14 +51,13 @@ export default function Author(props: Data) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
   const { data } = await api.get(`?author=${slug}`);
-  console.log(data);
   return {
     props: data,
     revalidate: 60 * 60 * 24, //24 hours

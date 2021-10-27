@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         color="#F6E05E"
         startPosition={0.3}
         stopDelayMs={200}
-        height={300}
+        height={5}
       />
       <Component {...pageProps} />
     </ChakraProvider>

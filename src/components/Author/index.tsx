@@ -13,7 +13,7 @@ export function Author({ author, genre }: AuthorProps) {
     <Flex
       ml="100px"
       mt="100"
-      w={['60%', '80%', '80%', '100%']}
+      w={['60%', '80%', '80%', '1100px']}
       _hover={{
         background: '#333333',
         color: '#F2F2F2',
